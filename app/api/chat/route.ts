@@ -6,8 +6,9 @@ import { OpenAIStream, StreamingTextResponse } from "ai";
 // const openai = new OpenAI({
 //   apiKey: "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", // defaults to process.env["OPENAI_API_KEY"]
 // });
+export type MarkType = "Email Marketing" | "Social Media Marketing" | "WebSite Marketing" | "SMS Marketing";
 const config = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey:"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",
 });
 const openai = new OpenAIApi(config);
 
@@ -101,6 +102,30 @@ export async function POST(req: Request) {
     CTA: "Click here to learn more",
    "Your Storage Company": "India's  Storage",
   };
+
+  const context_gen = (mark:string) => {
+    if(mark === "Email Marketing"){
+      return "Email content with context to Storage industry for tenants to rent storage units";
+    }
+    else if(mark === "Social Media Marketing"){
+      return "Social Media post with context to Storage industry for tenants to rent storage units also generate a catchy hashtag, also some trendy hashtags";
+    }
+    else if(mark === "SMS Marketing"){
+      return "Create a SMS with context to Storage industry for tenants to rent storage units";
+    }
+  }
+
+  const limit_lines = (mark:string) => {
+    if(mark === "Email Marketing"){
+      return 125;
+    }
+    else if(mark === "Social Media Marketing"){
+      return 120;
+    }
+    else if(mark === "SMS Marketing"){
+      return 50;
+    }
+  }
   // Function to replace placeholders in the email template
 function replacePlaceholders(template:any, data:any) {
   for (const placeholder in data) {
@@ -117,8 +142,8 @@ function replacePlaceholders(template:any, data:any) {
   messages: [
     {
       role: 'user',
-      content: `Generate a  marketing copy based on ${bio}
-        Make sure each generated Campaign Copy is less than 10 words, good email campaign size, but should have good data and grammatically correct,  send html template after subject, body and footer also image position and closing characters base them on this context : ${emailWithDynamicData} `,
+      content: `Generate a  ${mark} copy based on ${bio}
+       limit to ${limit_lines(mark)} words ${context_gen(mark)})}`,
     },
   ],
 });
