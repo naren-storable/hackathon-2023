@@ -154,7 +154,7 @@ export default function Page() {
           )} */}
         </output>
         </main>
-        <Footer />
+        {/* <Footer /> */}
     </div>
   );
 }

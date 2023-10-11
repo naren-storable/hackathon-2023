@@ -8,7 +8,7 @@ import { OpenAIStream, StreamingTextResponse } from "ai";
 // });
 export type MarkType = "Email Marketing" | "Social Media Marketing" | "WebSite Marketing" | "SMS Marketing";
 const config = new Configuration({
-  apiKey:"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",
+  apiKey:process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(config);
 
@@ -105,7 +105,7 @@ export async function POST(req: Request) {
 
   const context_gen = (mark:string) => {
     if(mark === "Email Marketing"){
-      return "Email content with context to Storage industry for tenants to rent storage units";
+      return "Email content body only with context to Storage industry for tenants to rent storage units";
     }
     else if(mark === "Social Media Marketing"){
       return "Social Media post with context to Storage industry for tenants to rent storage units also generate a catchy hashtag, also some trendy hashtags";
