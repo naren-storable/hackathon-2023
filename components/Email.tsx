@@ -6,7 +6,7 @@ import {
     Button,
   } from "@material-tailwind/react";
    
-  export default function SimpleCard(market) {
+  export default function EmailCopy({content}:any) {
     return (
         <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="p-6">
@@ -14,9 +14,7 @@ import {
            Email Copy
           </h5>
           <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-            The place is close to Barceloneta Beach and bus stop just 2 min by walk
-            and near to "Naviglio" where you can enjoy the main night life in
-            Barcelona.
+            {content}
           </p>
         </div>
         <div className="p-6 pt-0">

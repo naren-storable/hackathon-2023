@@ -1,4 +1,4 @@
-export default function sms() {
+export default function Sms({content}:any) {
     return (
 <div className="relative mt-6 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
   <div className="p-6">
@@ -34,7 +34,7 @@ export default function sms() {
         type="button"
         data-ripple-dark="true"
       >
-        Learn More
+      {content}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

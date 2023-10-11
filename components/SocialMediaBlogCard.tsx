@@ -1,4 +1,4 @@
-export default function socialMedia() {
+export default function SocialMediaBlogCard({content}:any) {
   return (
     <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
       <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
@@ -48,12 +48,10 @@ export default function socialMedia() {
           </p>
         </div>
         <p className="block font-sans text-base font-light leading-relaxed text-gray-700 antialiased">
-          Enter a freshly updated and thoughtfully furnished peaceful home
-          surrounded by ancient trees, stone walls, and open meadows.
+         {content}
         </p>
         <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
-          <span
-            data-tooltip-target="money"
+          <span       
             className="cursor-pointer rounded-full border border-pink-500/5 bg-pink-500/5 p-3 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
           >
             <svg
@@ -79,7 +77,7 @@ export default function socialMedia() {
             $129 per night
           </div>
           <span
-            data-tooltip-target="wifi"
+         
             className="cursor-pointer rounded-full border border-pink-500/5 bg-pink-500/5 p-3 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
           >
             <svg
@@ -103,7 +101,6 @@ export default function socialMedia() {
             Free wifi
           </div>
           <span
-            data-tooltip-target="bedrooms"
             className="cursor-pointer rounded-full border border-pink-500/5 bg-pink-500/5 p-3 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
           >
             <svg
@@ -124,7 +121,6 @@ export default function socialMedia() {
             2 bedrooms
           </div>
           <span
-            data-tooltip-target="tv"
             className="cursor-pointer rounded-full border border-pink-500/5 bg-pink-500/5 p-3 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
           >
             <svg
@@ -143,13 +139,11 @@ export default function socialMedia() {
             </svg>
           </span>
           <div
-            data-tooltip="tv"
             className="absolute z-50 whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 font-sans text-sm font-normal text-white focus:outline-none"
           >
             64" HDTV
           </div>
           <span
-            data-tooltip-target="fire"
             className="cursor-pointer rounded-full border border-pink-500/5 bg-pink-500/5 p-3 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
           >
             <svg
@@ -167,19 +161,17 @@ export default function socialMedia() {
             </svg>
           </span>
           <div
-            data-tooltip="fire"
             className="absolute z-50 whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 font-sans text-sm font-normal text-white focus:outline-none"
           >
             Fire alert
           </div>
           <span
-            data-tooltip-target="more"
             className="cursor-pointer rounded-full border border-pink-500/5 bg-pink-500/5 p-3 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
           >
             +20
           </span>
           <div
-            data-tooltip="more"
+
             className="absolute z-50 whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 font-sans text-sm font-normal text-white focus:outline-none"
           >
             And +20 more
@@ -192,7 +184,7 @@ export default function socialMedia() {
           type="button"
           data-ripple-light="true"
         >
-          Reserve
+         Publish
         </button>
       </div>
     </div>

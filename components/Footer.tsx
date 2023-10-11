@@ -10,15 +10,7 @@ export default function Footer() {
           target="_blank"
           className="font-bold hover:underline transition underline-offset-2"
         >
-          ChatGPT{' '}
-        </a>
-        and{' '}
-        <a
-          href="https://sdk.vercel.ai/docs"
-          target="_blank"
-          className="font-bold hover:underline transition underline-offset-2"
-        >
-          Vercel AI SDK
+          Storable AI{' '}
         </a>
       </div>
       <div className="flex space-x-4 pb-4 sm:pb-0">

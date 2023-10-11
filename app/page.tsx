@@ -1,23 +1,26 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
-import DropDown, { VibeType } from '../components/DropDown';
-import DropDownMark, { MarkType } from '../components/DropDownMarkTypes';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import { useChat } from 'ai/react';
-import BackgroundBlogCard from '../components/BackgroundBlogCard';
+import { useRef, useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
+import DropDown, { VibeType } from "../components/DropDown";
+import DropDownMark, { MarkType } from "../components/DropDownMarkTypes";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import { useChat } from "ai/react";
+import EmailCopy from "../components/Email";
+import FlyerAd from "../components/FlyerAd";
+import SocialMediaBlogCard from "../components/SocialMediaBlogCard";
+import Sms from "../components/SmsCard";
 
 export default function Page() {
-  const [bio, setBio] = useState('');
-  const [vibe, setVibe] = useState<VibeType>('Professional');
-  const [mark, setMark] = useState<MarkType>('Offers');
+  const [bio, setBio] = useState("");
+  const [vibe, setVibe] = useState<VibeType>("Professional");
+  const [mark, setMark] = useState<MarkType>("Offers");
   const bioRef = useRef<null | HTMLDivElement>(null);
 
   const scrollToBios = () => {
     if (bioRef.current !== null) {
-      bioRef.current.scrollIntoView({ behavior: 'smooth' });
+      bioRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -39,9 +42,11 @@ export default function Page() {
   };
 
   const lastMessage = messages[messages.length - 1];
-  const generatedBios = lastMessage?.role === "assistant" ? lastMessage.content : null;
+  const generatedBios ="text";
+    // lastMessage?.role === "assistant" ? lastMessage.content : null;
 
   return (
+    <div>
     <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Header />
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
@@ -59,8 +64,7 @@ export default function Page() {
               className="mb-5 sm:mb-0"
             /> */}
             <p className="text-left font-medium">
-            Write  few sentences about the marketing campaign
-              .
+              Write few sentences about the marketing campaign .
             </p>
           </div>
           <textarea
@@ -69,7 +73,7 @@ export default function Page() {
             rows={4}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
             placeholder={
-              'create a marketing campaign for reduced rents on your Unit'
+              "create a marketing campaign for reduced rents on your Unit"
             }
           />
           <div className="flex mb-5 items-center space-x-3">
@@ -102,9 +106,9 @@ export default function Page() {
               disabled
             >
               <span className="loading">
-                <span style={{ backgroundColor: 'white' }} />
-                <span style={{ backgroundColor: 'white' }} />
-                <span style={{ backgroundColor: 'white' }} />
+                <span style={{ backgroundColor: "white" }} />
+                <span style={{ backgroundColor: "white" }} />
+                <span style={{ backgroundColor: "white" }} />
               </span>
             </button>
           )}
@@ -115,38 +119,27 @@ export default function Page() {
           toastOptions={{ duration: 2000 }}
         />
         <hr className="h-px bg-gray-700 border-1 dark:bg-gray-700" />
-        <BackgroundBlogCard />
-        <output className="space-y-10 my-10">
-          {generatedBios && (
-            <>
-              <div>
-                <h2
-                  className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto"
-                  ref={bioRef}
-                >
-                  Your Campaign Copy
-                </h2>
-              </div>
-             
-              <div className="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-  <div className="flex justify-center md:justify-end -mt-16">
-   
-  </div>
-  <br></br>
-  <div>
-    
-  </div>
-  <div>
-    <h2 className="text-gray-800 text-3xl font-semibold  -mt-16">Email Copy</h2>
-    <p className="mt-2 text-gray-600">{generatedBios}</p>  </div>
-  <div className="flex justify-end mt-4">
-    <a href="#" className="text-xl font-medium text-indigo-500">Copy</a>
-  </div>
-</div>            </>
+
+      
+      </main>
+      
+      
+    </div>
+    <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
+    <output >
+          {true && (
+            <div className="grid grid-cols-2 gap-2 ">
+              <div> <EmailCopy content={generatedBios} title={"Email Copy"} /></div> 
+              <div> <Sms content={generatedBios} title={"SMS Copy"}/></div> 
+              <div>  <FlyerAd content={generatedBios} title={"Poster"}/></div> 
+              <div>  <SocialMediaBlogCard content={generatedBios} title={"Social Media Copy"}/></div> 
+              
+
+            </div>
           )}
         </output>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
     </div>
   );
 }

@@ -118,7 +118,7 @@ function replacePlaceholders(template:any, data:any) {
     {
       role: 'user',
       content: `Generate a  marketing copy based on ${bio}
-        Make sure each generated Campaign Copy is less than 400 words, good email campaign size, but should have good data and grammatically correct,  send html template after subject, body and footer also image position and closing characters base them on this context : ${emailWithDynamicData} `,
+        Make sure each generated Campaign Copy is less than 10 words, good email campaign size, but should have good data and grammatically correct,  send html template after subject, body and footer also image position and closing characters base them on this context : ${emailWithDynamicData} `,
     },
   ],
 });
