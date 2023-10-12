@@ -96,7 +96,7 @@ export default function Page() {
           <br />
             <div className="flex mb-5 items-center space-x-3">
               {/* <Image src="/2-black.png" width={30} height={30} alt="1 icon" /> */}
-              <p className="text-left font-bold"> Marketing Type</p>
+              <p className="text-left font-bold"> Marketing Medium</p>
             </div>
             <div className="block">
               <DropDownMark
