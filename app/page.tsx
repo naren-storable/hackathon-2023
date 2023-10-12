@@ -28,7 +28,7 @@ export default function Page() {
         return (
           <EmailCopy
             content={content}
-            coupon_data="Use Coupon code ST50 for 50% off"
+            coupon_data="Use Coupon code ST50 for 12% off"
           />
         );
 
@@ -139,7 +139,7 @@ export default function Page() {
           {generatedBios && render_market_type(mark, generatedBios)}
         </output>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
