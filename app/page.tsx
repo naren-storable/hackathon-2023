@@ -14,7 +14,6 @@ import Sms from "../components/SmsCard";
 
 export default function Page() {
   const [bio, setBio] = useState("");
-  const [vibe, setVibe] = useState<VibeType>("Professional");
   const [mark, setMark] = useState<MarkType>("Email Marketing");
   const bioRef = useRef<null | HTMLDivElement>(null);
 
@@ -48,7 +47,6 @@ export default function Page() {
   const { input, handleInputChange, handleSubmit, isLoading, messages } =
     useChat({
       body: {
-        vibe,
         bio,
         mark,
       },
@@ -58,6 +56,7 @@ export default function Page() {
     });
 
   const onSubmit = (e: any) => {
+    console.log("the",input)
     setBio(input);
     handleSubmit(e);
   };
@@ -75,23 +74,17 @@ export default function Page() {
         </h1>
         {/* <p className="text-slate-500 mt-5">47,118 bios generated so far.</p> */}
         <form className="max-w-xl w-full" onSubmit={onSubmit}>
-        <br />
+        
         <div className="flex mb-5 items-center space-x-3">
             {/* <Image src="/2-black.png" width={30} height={30} alt="1 icon" /> */}
             <p className="text-left font-bold"> Marketing Type</p>
           </div>
           <div className="block">
-            <DropDownMark mark={mark} setMark={(newMark) => {generatedBios = null; setMark(newMark) } } />
+            <DropDownMark mark={mark} setMark={(newMark) => {setMark(newMark) } } />
           </div>
        
           <div className="flex mt-10 items-center space-x-3">
-            {/* <Image
-              src="/1-black.png"
-              width={30}
-              height={30}
-              alt="1 icon"
-              className="mb-5 sm:mb-0"
-            /> */}
+          
             <p className="text-left font-medium">
               Write few sentences to describe the content.
             </p>
@@ -144,14 +137,6 @@ export default function Page() {
       render_market_type(mark,generatedBios)
      
     )}
-          {/* {generatedBios && (
-            <div className="grid grid-cols-2 gap-2 ">
-              <div> <EmailCopy content={generatedBios} title={"Email Copy"} /></div> 
-              <div> <Sms content={generatedBios} title={"SMS Copy"}/></div> 
-              <div>  <FlyerAd content={generatedBios} title={"Poster"}/></div> 
-              <div>  <SocialMediaBlogCard content={generatedBios} title={"Social Media Copy"}/></div> 
-            </div>
-          )} */}
         </output>
         </main>
         {/* <Footer /> */}

@@ -7,7 +7,20 @@ import {
 } from "@material-tailwind/react";
 
 export default function EmailCopy({ content }: any) {
-  console.log(content);
+  
+  const data:any = {};
+  
+  const regex = /^([\w\s]+):\s([\s\S]*?)(?=\n\w+:|$)/gm;
+  let match;
+  while ((match = regex.exec(content)) !== null) {
+    const key = match[1];
+    const value = match[2].trim();
+    data[key] = value;
+  }
+  
+  console.log(data);
+  console.log(content); 
+
   return (
     //   <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border shadow-md">
     //   <div className="p-6">
@@ -36,6 +49,9 @@ export default function EmailCopy({ content }: any) {
     </header> */}
 
       <main className="mt-3">
+      <h2 className="text-gray-700 dark:text-gray-200">
+      [Subject]: {data.subject}
+        </h2>
         <h2 className="text-gray-700 dark:text-gray-200">
           Hi [Customer Name],
         </h2>
@@ -48,12 +64,13 @@ export default function EmailCopy({ content }: any) {
           <div className="absolute inset-0 bg-gray-500 opacity-40 rounded-md"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <h2 className="text-white text-3xl font-bold">
-             Flat 50% off
+           {data.image_tag_line}
             </h2>
           </div>
         </div>
         <p className="mt-3 leading-loose text-gray-600 dark:text-gray-300">
-          {content}
+        {data.email_body}
+   
         </p>
         {/* <a href="#">
 
