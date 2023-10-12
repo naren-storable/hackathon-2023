@@ -13,7 +13,7 @@ export const runtime = "edge";
 
 export async function POST(req: Request) {
   const {  messages,mark} = await req.json();
-  
+
 const bio = messages[0]?.content;
   const context_gen = (mark:string) => {
     if(mark === "Email Marketing"){

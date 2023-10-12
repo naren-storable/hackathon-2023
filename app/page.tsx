@@ -28,7 +28,7 @@ export default function Page() {
         return (
           <EmailCopy
             content={content}
-            coupon_data="Use Coupon code ST50 for 12% off"
+            coupon_data="Use Coupon code STOPT12 for 12% off"
           />
         );
 
@@ -72,11 +72,28 @@ export default function Page() {
       <div className="flex mx-auto flex-col items-center justify-center py-2">
         <Header />
         <main className="flex flex-1 w-full flex-col items-center text-center px-4 mt-5 sm:mt-10">
+
+        <p className="text-left font-medium text-red-500">
+             Your previous month occupancy rate went down by 20%, starting a new Marketing campaign is recommended.
+            </p>
+            <br/>
           <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
             Generate your next Marketing Campaign
           </h1>
           {/* <p className="text-slate-500 mt-5">47,118 bios generated so far.</p> */}
           <form className="max-w-xl w-full" onSubmit={onSubmit}>
+          <p className="text-left font-medium">Discount Percentage</p>
+          <input
+            id="discount_percentage_input"
+            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
+            placeholder={
+              "please give your discount percentage"
+            }
+            value={12}
+          />
+          <p className="text-left font-medium" id="recommended_discount_id">Recommended Discount: 12%</p> 
+          <p className="text-left font-medium text-green-400" style={{ display: 'block' }} id="discount_msg"> This is recommended discount to maximize your revenue</p>
+          <br />
             <div className="flex mb-5 items-center space-x-3">
               {/* <Image src="/2-black.png" width={30} height={30} alt="1 icon" /> */}
               <p className="text-left font-bold"> Marketing Type</p>
