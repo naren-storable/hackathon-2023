@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
   const limit_lines = (mark:string) => {
     if(mark === "Email Marketing"){
-      return 125;
+      return 325;
     }
     else if(mark === "Social Media Marketing"){
       return 120;
@@ -59,7 +59,7 @@ function replacePlaceholders(template:any, data:any) {
  let content = ``;
  if(mark === "Email Marketing"){
   content = `Generate an email copy based on the following user input as context ${bio},
-  Ensure that the email copy doesn't exceed ${limit_lines(mark)} characters and that it focuses on content related to the storage industry. The email is targeted at potential tenants interested in renting storage units. Response format should be in the format subject:[], email_body:[], image_tag_line:[] with line breaks in between each of the key value pairs. No customer greetings like hello and hi  in email_body`
+  Ensure that the email copy doesn't exceed ${limit_lines(mark)} characters and that it focuses on content related to the storage industry. The email is targeted at potential tenants interested in renting storage units. No customer greetings like hello and hi  in email_body`
   
  }
  if(mark === "Social Media Marketing"){

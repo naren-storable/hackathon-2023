@@ -8,18 +8,22 @@ import {
 
 export default function EmailCopy({ content }: any) {
   
-  const data:any = {};
-  
-  const regex = /^([\w\s]+):\s([\s\S]*?)(?=\n\w+:|$)/gm;
-  let match;
-  while ((match = regex.exec(content)) !== null) {
-    const key = match[1];
-    const value = match[2].trim();
-    data[key] = value;
-  }
-  
-  console.log(data);
-  console.log(content); 
+  const data: any = {};
+
+// Create a regular expression to match key-value pairs enclosed in square brackets
+// const regex = /^([\w\s]+):\s([\s\S]*?)(?=\n\w+:|$)/gm;
+// let match;
+
+// while ((match = regex.exec(content)) !== null) {
+//   const key = match[1];
+//   const value = match[2];
+
+//   data[key] = value.trim();
+// }
+
+// console.log(data);
+
+//   console.log(content); 
 
   return (
     //   <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border shadow-md">
@@ -50,7 +54,7 @@ export default function EmailCopy({ content }: any) {
 
       <main className="mt-3">
       <h2 className="text-gray-700 dark:text-gray-200">
-      [Subject]: {data.subject}
+      [Subject]: Flat 50% off in Storage
         </h2>
         <h2 className="text-gray-700 dark:text-gray-200">
           Hi [Customer Name],
@@ -64,13 +68,12 @@ export default function EmailCopy({ content }: any) {
           <div className="absolute inset-0 bg-gray-500 opacity-40 rounded-md"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <h2 className="text-white text-3xl font-bold">
-           {data.image_tag_line}
+           Flat 50% off
             </h2>
           </div>
         </div>
         <p className="mt-3 leading-loose text-gray-600 dark:text-gray-300">
-        {data.email_body}
-   
+       {content}
         </p>
         {/* <a href="#">
 
