@@ -20,7 +20,7 @@ export default function Sms({content}:any) {
 
     <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
     {content}
-   { "[url]"}
+   { "https://6527efde5682260c8e2f03df--gleaming-madeleine-c27098.netlify.app/"}
     </p>
   </div>
 </div> 
