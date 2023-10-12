@@ -29,7 +29,7 @@ const bio = messages[0]?.content;
 
   const limit_lines = (mark:string) => {
     if(mark === "Email Marketing"){
-      return 325;
+      return 200;
     }
     else if(mark === "Social Media Marketing"){
       return 120;
@@ -50,8 +50,8 @@ function replacePlaceholders(template:any, data:any) {
  // Ask OpenAI for a streaming completion given the prompt
  let content = ``;
  if(mark === "Email Marketing"){
-  content = `Generate an email copy based on the following user input as context ${bio},
-  Ensure that the email copy doesn't exceed ${limit_lines(mark)} characters and that it focuses on content related to the storage industry. The email is targeted at potential tenants interested in renting storage units. Response format should be in the strict format {subject:, email_body:, image_tag_line:}. No customer greetings like hello and hi  in email_body`
+  content = `Generate an email body only copy based on the following user input as context ${bio},
+  Ensure that the email copy doesn't exceed ${limit_lines(mark)} characters and that it focuses on content related to the storage industry. The email is targeted at potential tenants interested in renting storage units. Response should be only email body. No customer greetings like hello and hi  in email body`
   
  }
  if(mark === "Social Media Marketing"){
